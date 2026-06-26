@@ -29,12 +29,10 @@
       overflow-x: hidden;
     }
 
-    /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
 
-    /* ── NOISE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -45,7 +43,6 @@
       opacity: 0.4;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -82,7 +79,6 @@
     }
     nav ul li a:hover { color: var(--accent2); }
 
-    /* ── HERO ── */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -103,7 +99,6 @@
         linear-gradient(180deg, #050a14 0%, #0a1628 100%);
     }
 
-    /* Animated grid */
     .hero-grid {
       position: absolute;
       inset: 0;
@@ -142,7 +137,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: fadeUp 0.8s ease 0.2s both;
-      text-shadow: none;
     }
 
     .hero-title {
@@ -153,7 +147,6 @@
       letter-spacing: 2px;
       animation: fadeUp 0.8s ease 0.4s both;
     }
-
     .hero-title span { color: var(--accent2); font-weight: 500; }
 
     .hero-cta {
@@ -225,9 +218,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── SECTIONS ── */
     section { padding: 100px 24px; position: relative; z-index: 1; }
-
     .container { max-width: 1100px; margin: 0 auto; }
 
     .section-label {
@@ -255,7 +246,6 @@
       border-radius: 2px;
     }
 
-    /* ── ABOUT ── */
     #about .about-grid {
       display: grid;
       grid-template-columns: 1fr 1.5fr;
@@ -263,10 +253,7 @@
       align-items: center;
     }
 
-    .about-photo-wrap {
-      position: relative;
-    }
-
+    .about-photo-wrap { position: relative; }
     .about-photo-wrap::before {
       content: '';
       position: absolute;
@@ -298,7 +285,6 @@
       letter-spacing: 1px;
       gap: 12px;
     }
-
     .about-photo-placeholder svg { opacity: 0.4; }
 
     .about-text p {
@@ -307,10 +293,8 @@
       font-size: 1rem;
       margin-bottom: 20px;
     }
-
     .about-text p strong { color: var(--text); }
 
-    /* ── SKILLS ── */
     #skills { background: linear-gradient(180deg, transparent, rgba(10,22,40,0.5) 50%, transparent); }
 
     .skills-grid {
@@ -327,7 +311,6 @@
       transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
       backdrop-filter: blur(8px);
     }
-
     .skill-card:hover {
       transform: translateY(-4px);
       border-color: rgba(0,194,255,0.4);
@@ -335,7 +318,6 @@
     }
 
     .skill-icon { font-size: 2rem; margin-bottom: 14px; }
-
     .skill-name {
       font-family: 'Orbitron', sans-serif;
       font-size: 0.85rem;
@@ -344,9 +326,7 @@
       margin-bottom: 8px;
       color: var(--text);
     }
-
     .skill-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
-
     .skill-bar-wrap { margin-top: 16px; height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
     .skill-bar {
       height: 100%;
@@ -356,7 +336,6 @@
       transition: width 1.2s ease;
     }
 
-    /* ── GALLERY ── */
     #gallery .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -369,26 +348,14 @@
       border: 1px solid rgba(30,111,255,0.15);
       background: var(--card);
       transition: transform 0.25s, box-shadow 0.25s;
-      cursor: pointer;
     }
     .gallery-item:hover {
       transform: scale(1.02);
       box-shadow: 0 12px 40px rgba(30,111,255,0.25);
     }
-
-    .gallery-item img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery-item video {
-      width: 100%;
-      aspect-ratio: 16/9;
-      display: block;
-      background: #000;
-    }
+    .gallery-item img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+    .gallery-item video { width: 100%; aspect-ratio: 16/9; display: block; background: #000; }
+    .gallery-item iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
 
     .gallery-placeholder {
       aspect-ratio: 16/9;
@@ -401,13 +368,8 @@
       gap: 8px;
     }
 
-    .gallery-caption {
-      padding: 14px 16px;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
+    .gallery-caption { padding: 14px 16px; font-size: 0.82rem; color: var(--muted); }
 
-    /* ── CONTACT ── */
     #contact { text-align: center; }
 
     .contact-links {
@@ -438,7 +400,6 @@
       box-shadow: 0 8px 24px rgba(30,111,255,0.2);
     }
 
-    /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 32px;
@@ -447,18 +408,13 @@
       border-top: 1px solid rgba(30,111,255,0.1);
     }
 
-    /* ── REVEAL ANIMATION ── */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── MOBILE ── */
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
       nav ul { gap: 16px; }
@@ -474,7 +430,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="logo">RAF_MEMES</div>
   <ul>
@@ -485,14 +440,13 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
     <div class="hero-tag">🎮 Roblox Developer</div>
     <h1 class="hero-name">Raf_Memes</h1>
-    <p class="hero-title">Luau Scripter · <span>UI Designer</span> · Team Player</p>
+    <p class="hero-title">Luau Scripter · <span>UI Designer</span> · Open for Orders</p>
     <div class="hero-cta">
       <a href="#gallery" class="btn btn-primary">View Work</a>
       <a href="#contact" class="btn btn-outline">Hire Me</a>
@@ -500,31 +454,29 @@
     <div class="hero-stats">
       <div class="stat">
         <div class="stat-num">4+</div>
-        <div class="stat-label">Years in Luau</div>
+        <div class="stat-label">Years in Studio</div>
       </div>
       <div class="stat">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Projects Built</div>
+        <div class="stat-num">Luau</div>
+        <div class="stat-label">Main Language</div>
       </div>
       <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Dedication</div>
+        <div class="stat-num">UI</div>
+        <div class="stat-label">Design Skills</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
       <div class="about-photo-wrap reveal">
         <!--
-          ФОТО:
-          Замени эту секцию своей фотографией.
-          Загрузи фото в репозиторий (например: photo.jpg)
-          и замени строку ниже на:
-          <img src="photo.jpg" alt="Raf_Memes" />
+          Чтобы добавить фото:
+          1. Загрузи файл photo.jpg в репозиторий
+          2. Удали блок about-photo-placeholder
+          3. Вставь вместо него: <img src="photo.jpg" alt="Raf_Memes" />
         -->
         <div class="about-photo-placeholder">
           <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -536,15 +488,14 @@
       <div class="about-text reveal">
         <div class="section-label">// About Me</div>
         <h2 class="section-title">Who I Am</h2>
-        <p>Привет! Я <strong>Raf_Memes</strong> — Roblox-разработчик с более чем <strong>4 годами опыта</strong> работы на Luau. За это время я успел поработать в командах, делать системы с нуля и прокачать свой стиль в UI-дизайне.</p>
-        <p>Я специализируюсь на написании чистого и оптимизированного Luau-кода, создании интуитивных интерфейсов и геймплейных систем. Мне нравится, когда код работает быстро, а UI выглядит красиво.</p>
-        <p>Ищу серьёзные проекты, где ценят качество и умение работать в команде. Готов к долгосрочному сотрудничеству.</p>
+        <p>Привет! Я <strong>Raf_Memes</strong> — Roblox-разработчик с <strong>4 годами опыта</strong> работы в Roblox Studio и языке Luau.</p>
+        <p>Большую часть времени я работал над своими проектами и личными экспериментами — изучал системы, оттачивал UI и прокачивал навыки. В командных проектах участвовал редко, но это меняется: сейчас я активно ищу заказы и готов работать в команде.</p>
+        <p>Умею писать чистый Luau-код, делать приятные интерфейсы и доводить задачи до конца. Если ищешь надёжного разработчика — пиши!</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="container">
     <div class="reveal">
@@ -563,7 +514,7 @@
       <div class="skill-card reveal">
         <div class="skill-icon">🎨</div>
         <div class="skill-name">UI / UX Design</div>
-        <div class="skill-desc">Разработка интерфейсов в Roblox Studio: анимированные GUI, инвентари, HUD, меню и диалоги.</div>
+        <div class="skill-desc">Анимированные GUI, инвентари, HUD, меню и диалоги — делаю интерфейсы которые приятно использовать.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="88"></div></div>
       </div>
 
@@ -571,27 +522,27 @@
         <div class="skill-icon">⚙️</div>
         <div class="skill-name">Game Systems</div>
         <div class="skill-desc">Системы прогрессии, инвентарей, магазинов, монетизации, боевые и квест-механики.</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="90"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-icon">👥</div>
-        <div class="skill-name">Team Collaboration</div>
-        <div class="skill-desc">Опыт работы в командах: Git, чёткая структура кода, документация, коммуникация с дизайнерами и билдерами.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div>
       </div>
 
       <div class="skill-card reveal">
         <div class="skill-icon">🛠️</div>
         <div class="skill-name">Roblox Studio</div>
-        <div class="skill-desc">Полное владение инструментами Studio, работа с сервисами Roblox API, дата-стором, лидербордами.</div>
+        <div class="skill-desc">4 года в Studio — полное владение инструментами, Roblox API, DataStore, лидербордами и сервисами.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="92"></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">👥</div>
+        <div class="skill-name">Teamwork</div>
+        <div class="skill-desc">Умею работать в команде, общаться с дизайнерами и билдерами, писать понятный и документированный код.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="75"></div></div>
       </div>
 
       <div class="skill-card reveal">
         <div class="skill-icon">🚀</div>
         <div class="skill-name">Optimization</div>
-        <div class="skill-desc">Профилирование, снижение нагрузки на сервер, работа с LOD, пулинг объектов и кэширование.</div>
+        <div class="skill-desc">Профилирование, снижение нагрузки на сервер, пулинг объектов и кэширование данных.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="80"></div></div>
       </div>
 
@@ -599,7 +550,6 @@
   </div>
 </section>
 
-<!-- GALLERY -->
 <section id="gallery">
   <div class="container">
     <div class="reveal">
@@ -610,30 +560,19 @@
 
       <!--
         КАК ДОБАВИТЬ ФОТО:
-        Загрузи изображение в репозиторий и используй тег:
-        <div class="gallery-item reveal">
-          <img src="screenshot1.png" alt="Название проекта" />
-          <div class="gallery-caption">Описание проекта</div>
-        </div>
+        1. Загрузи файл в репозиторий (Add file → Upload files)
+        2. Замени gallery-placeholder на:
+        <img src="имя_файла.png" alt="Описание" />
 
-        КАК ДОБАВИТЬ ВИДЕО:
-        <div class="gallery-item reveal">
-          <video controls>
-            <source src="video1.mp4" type="video/mp4" />
-          </video>
-          <div class="gallery-caption">Геймплей / демо</div>
-        </div>
+        КАК ДОБАВИТЬ ВИДЕО (mp4):
+        <video controls>
+          <source src="video1.mp4" type="video/mp4" />
+        </video>
 
-        ИЛИ YouTube:
-        <div class="gallery-item reveal">
-          <iframe width="100%" style="aspect-ratio:16/9;border:none;"
-            src="https://www.youtube.com/embed/ВАШ_ID"
-            allowfullscreen></iframe>
-          <div class="gallery-caption">Геймплей на YouTube</div>
-        </div>
+        КАК ДОБАВИТЬ YOUTUBE:
+        <iframe src="https://www.youtube.com/embed/ID_ВИДЕО" allowfullscreen></iframe>
       -->
 
-      <!-- ЗАГЛУШКИ — замени своими скриншотами/видео -->
       <div class="gallery-item reveal">
         <div class="gallery-placeholder">
           <span style="font-size:2rem">🖼️</span>
@@ -662,59 +601,37 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <div class="reveal">
       <div class="section-label">// Contact</div>
       <h2 class="section-title">Hire Me</h2>
       <p style="color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.8;">
-        Открыт к новым проектам и долгосрочному сотрудничеству.<br/>
-        Пиши — отвечу быстро!
+        Открыт к новым проектам и заказам.<br/>Пиши в Discord — отвечу быстро!
       </p>
     </div>
     <div class="contact-links reveal">
-
-      <!-- Замени ссылки на свои -->
-      <a href="https://www.roblox.com/users/ТВОЙ_ID/profile" target="_blank" class="contact-link">
-        <span>🎮</span> Roblox Profile
+      <a href="https://discord.com/users/rmdeveloper" target="_blank" class="contact-link">
+        <span>💬</span> Discord — rmdeveloper
       </a>
-
-      <a href="https://discord.com/users/ТВОЙ_DISCORD" target="_blank" class="contact-link">
-        <span>💬</span> Discord
-      </a>
-
-      <!--
-        Для Talent Hub / Hidden Developers:
-        <a href="ССЫЛКА_НА_ПРОФИЛЬ" target="_blank" class="contact-link">
-          <span>💼</span> Talent Hub
-        </a>
-      -->
-
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2025 Raf_Memes · Roblox Luau Developer · Built with 💙</p>
 </footer>
 
 <script>
-  // ── SCROLL REVEAL ──
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
         setTimeout(() => entry.target.classList.add('visible'), i * 80);
         observer.unobserve(entry.target);
-
-        // Animate skill bars
         const bar = entry.target.querySelector('.skill-bar');
         if (bar) {
-          setTimeout(() => {
-            bar.style.width = bar.dataset.width + '%';
-          }, 300);
+          setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 300);
         }
       }
     });
@@ -722,7 +639,6 @@
 
   reveals.forEach(el => observer.observe(el));
 
-  // ── NAV SHRINK ──
   window.addEventListener('scroll', () => {
     document.querySelector('nav').style.padding =
       window.scrollY > 60 ? '12px 48px' : '18px 48px';
