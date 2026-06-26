@@ -467,7 +467,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
       margin-bottom: 14px;
       border-radius: 14px;
       background: linear-gradient(135deg, rgba(30,111,255,0.3), rgba(0,194,255,0.15));
@@ -475,6 +474,12 @@
       box-shadow: inset 0 1px 1px rgba(255,255,255,0.35);
       position: relative;
       z-index: 1;
+      color: var(--accent2);
+    }
+    .skill-icon svg {
+      width: 26px;
+      height: 26px;
+      filter: drop-shadow(0 0 4px rgba(0,194,255,0.5));
     }
     .skill-name {
       font-family: 'Montserrat', sans-serif;
@@ -674,42 +679,66 @@
     <div class="skills-grid">
 
       <div class="skill-card reveal">
-        <div class="skill-icon">🔷</div>
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="7 8 3 12 7 16"/><polyline points="17 8 21 12 17 16"/><line x1="14" y1="4" x2="10" y2="20"/>
+          </svg>
+        </div>
         <div class="skill-name">Luau Scripting</div>
         <div class="skill-desc">OOP, modular systems, RemoteEvents, optimization and debugging. I write readable, scalable code.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="95"></div></div>
       </div>
 
       <div class="skill-card reveal">
-        <div class="skill-icon">🎨</div>
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+        </div>
         <div class="skill-name">UI / UX Design</div>
         <div class="skill-desc">Animated GUIs, inventories, HUDs, menus and dialogs — I build interfaces that feel good to use.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="88"></div></div>
       </div>
 
       <div class="skill-card reveal">
-        <div class="skill-icon">⚙️</div>
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/>
+          </svg>
+        </div>
         <div class="skill-name">Game Systems</div>
         <div class="skill-desc">Progression systems, inventories, shops, monetization, combat and quest mechanics.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div>
       </div>
 
       <div class="skill-card reveal">
-        <div class="skill-icon">🛠️</div>
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
         <div class="skill-name">Roblox Studio</div>
         <div class="skill-desc">4 years in Studio — full command of the tools, Roblox API, DataStore, leaderboards and services.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="92"></div></div>
       </div>
 
       <div class="skill-card reveal">
-        <div class="skill-icon">👥</div>
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
         <div class="skill-name">Teamwork</div>
         <div class="skill-desc">Clear communication with designers and builders, well-documented code, and a collaborative approach to every project.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="75"></div></div>
       </div>
 
       <div class="skill-card reveal">
-        <div class="skill-icon">🚀</div>
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/>
+          </svg>
+        </div>
         <div class="skill-name">Optimization</div>
         <div class="skill-desc">Profiling, reducing server load, object pooling and data caching.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="80"></div></div>
@@ -728,33 +757,22 @@
     <div class="gallery-grid">
 
       <!--
-        HOW TO ADD A PHOTO:
-        1. Upload the file to the repo (Add file → Upload files)
-        2. Replace the gallery-placeholder div with:
-        <img src="your_file_name.png" alt="Description" />
+        Photos: name your files screenshot1.png, screenshot2.png, screenshot3.png
+        and upload them to the same folder as this HTML file in your GitHub repo.
       -->
 
       <div class="gallery-item reveal">
-        <div class="gallery-placeholder">
-          <span style="font-size:2rem">🖼️</span>
-          <span>Upload screenshot1.png</span>
-        </div>
+        <img src="screenshot1.png" alt="Project 1" />
         <div class="gallery-caption">Project 1 — short description</div>
       </div>
 
       <div class="gallery-item reveal">
-        <div class="gallery-placeholder">
-          <span style="font-size:2rem">🖼️</span>
-          <span>Upload screenshot2.png</span>
-        </div>
+        <img src="screenshot2.png" alt="Project 2" />
         <div class="gallery-caption">Project 2 — short description</div>
       </div>
 
       <div class="gallery-item reveal">
-        <div class="gallery-placeholder">
-          <span style="font-size:2rem">🖼️</span>
-          <span>Upload screenshot3.png</span>
-        </div>
+        <img src="screenshot3.png" alt="Project 3" />
         <div class="gallery-caption">Project 3 — UI design</div>
       </div>
 
