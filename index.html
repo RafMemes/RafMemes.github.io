@@ -46,7 +46,6 @@
       opacity: 0.4;
     }
 
-    /* Floating ambient particles for "alive" background */
     .particle-field {
       position: fixed;
       inset: 0;
@@ -224,7 +223,6 @@
       box-shadow: 0 0 40px rgba(30,111,255,0.7);
     }
 
-    /* Liquid glass button for Discord / Hire Me */
     .btn-glass {
       background: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
       color: var(--text);
@@ -257,17 +255,6 @@
         0 8px 28px rgba(88,101,242,0.35);
     }
     .btn-glass svg { width: 16px; height: 16px; flex-shrink: 0; }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--accent2);
-      border: 1px solid rgba(0,194,255,0.4);
-    }
-    .btn-outline:hover {
-      background: rgba(0,194,255,0.08);
-      border-color: var(--accent2);
-      transform: translateY(-2px);
-    }
 
     .hero-stats {
       display: flex;
@@ -328,7 +315,6 @@
       margin: 0 6px;
       filter: drop-shadow(0 0 6px rgba(0,194,255,0.6));
     }
-    .sparkle-lg { font-size: 1.4rem; }
     .hero-sparkle {
       position: absolute;
       color: var(--accent2);
@@ -341,7 +327,7 @@
       50% { opacity: 0.9; transform: scale(1.15) rotate(8deg); }
     }
 
-    /* ---- ABOUT (photo removed, glass info panel instead) ---- */
+    /* ABOUT */
     #about .about-grid {
       display: grid;
       grid-template-columns: 1fr 1.5fr;
@@ -418,23 +404,24 @@
       line-height: 1.8;
       font-size: 1rem;
       margin-bottom: 20px;
+      font-weight: 500;
     }
     .about-text p strong { color: var(--text); }
 
+    /* SKILLS — compact, no descriptions */
     #skills { background: linear-gradient(180deg, transparent, rgba(10,22,40,0.5) 50%, transparent); }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
     }
 
-    /* Liquid glass skill cards */
     .skill-card {
       background: linear-gradient(160deg, rgba(255,255,255,0.09), rgba(255,255,255,0.02));
       border: 1px solid var(--glass-border);
       border-radius: 18px;
-      padding: 28px 24px;
+      padding: 24px 20px;
       transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
       backdrop-filter: blur(14px) saturate(160%);
       -webkit-backdrop-filter: blur(14px) saturate(160%);
@@ -444,6 +431,10 @@
         0 8px 24px rgba(0,0,0,0.3);
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
     }
     .skill-card::before {
       content: '';
@@ -463,36 +454,43 @@
     }
 
     .skill-icon {
-      width: 52px; height: 52px;
+      width: 48px; height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 14px;
-      border-radius: 14px;
+      border-radius: 13px;
       background: linear-gradient(135deg, rgba(30,111,255,0.3), rgba(0,194,255,0.15));
       border: 1px solid rgba(255,255,255,0.2);
       box-shadow: inset 0 1px 1px rgba(255,255,255,0.35);
       position: relative;
       z-index: 1;
       color: var(--accent2);
+      flex-shrink: 0;
     }
     .skill-icon svg {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       filter: drop-shadow(0 0 4px rgba(0,194,255,0.5));
     }
     .skill-name {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
+      letter-spacing: 0.5px;
       color: var(--text);
       position: relative;
       z-index: 1;
     }
-    .skill-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; position: relative; z-index: 1; }
-    .skill-bar-wrap { margin-top: 16px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; position: relative; z-index: 1; }
+    .skill-bar-wrap {
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      margin-top: auto;
+    }
     .skill-bar {
       height: 100%;
       border-radius: 2px;
@@ -501,6 +499,7 @@
       transition: width 1.2s ease;
     }
 
+    /* GALLERY */
     #gallery .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -521,24 +520,13 @@
       box-shadow: 0 12px 40px rgba(30,111,255,0.25);
     }
     .gallery-item img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-
-    .gallery-placeholder {
-      aspect-ratio: 16/9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 0.8rem;
-      gap: 8px;
-    }
-
     .gallery-caption { padding: 14px 16px; font-size: 0.82rem; color: var(--muted); }
 
+    /* CONTACT */
     #contact { text-align: center; }
 
     .contact-glass {
-      max-width: 460px;
+      max-width: 480px;
       margin: 36px auto 0;
       padding: 32px 28px;
       border-radius: 20px;
@@ -553,8 +541,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 18px;
+      gap: 16px;
     }
+
     .contact-glass .discord-tag {
       font-size: 0.9rem;
       color: var(--text);
@@ -565,6 +554,66 @@
       border-radius: 999px;
     }
     .contact-glass .discord-tag b { color: #00c2ff; }
+
+    /* Timezone block */
+    .tz-block {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(0,194,255,0.06);
+      border: 1px solid rgba(0,194,255,0.2);
+    }
+    .tz-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tz-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #00c2ff;
+      box-shadow: 0 0 8px 2px rgba(0,194,255,0.7);
+      animation: pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 6px 1px rgba(0,194,255,0.5); }
+      50% { box-shadow: 0 0 14px 4px rgba(0,194,255,0.9); }
+    }
+    .tz-label {
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .tz-label b {
+      display: block;
+      color: var(--text);
+      font-size: 0.78rem;
+      margin-top: 2px;
+    }
+    .tz-clock {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #1e6fff, #00c2ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+      min-width: 70px;
+      text-align: right;
+    }
+
+    /* Divider between discord tag and button */
+    .contact-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+    }
 
     footer {
       text-align: center;
@@ -587,6 +636,8 @@
       nav ul li a { font-size: 0.75rem; }
       #about .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero-stats { gap: 24px; }
+      .tz-block { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .tz-clock { text-align: left; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -662,9 +713,8 @@
       <div class="about-text reveal">
         <div class="section-label"><span class="sparkle">✦</span> About Me</div>
         <h2 class="section-title">Who I Am</h2>
-        <p>Hi! I'm <strong>Raf_Memes</strong> — a Roblox developer with <strong>4 years of experience</strong> in Roblox Studio and the Luau language.</p>
-        <p>I spent most of those years building my own projects and personal experiments — studying systems, polishing UI, and leveling up my skills across every part of development. That hands-on foundation is exactly why I'm now taking on client orders and collaborating with teams: I bring the same care and attention to detail to every project, whether it's mine or yours.</p>
-        <p>I write clean Luau code, build pleasant interfaces, and follow tasks through to completion. If you're looking for a reliable developer — get in touch!</p>
+        <p>I'm <strong>Raf_Memes</strong> — 4 years in Roblox Studio, mostly building my own stuff: systems, UI, whatever needed doing. Now I take orders and actually finish them.</p>
+        <p>Clean Luau, solid interfaces, no ghosting. Hit me up.</p>
       </div>
     </div>
   </div>
@@ -685,7 +735,6 @@
           </svg>
         </div>
         <div class="skill-name">Luau Scripting</div>
-        <div class="skill-desc">OOP, modular systems, RemoteEvents, optimization and debugging. I write readable, scalable code.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="95"></div></div>
       </div>
 
@@ -696,7 +745,6 @@
           </svg>
         </div>
         <div class="skill-name">UI / UX Design</div>
-        <div class="skill-desc">Animated GUIs, inventories, HUDs, menus and dialogs — I build interfaces that feel good to use.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="88"></div></div>
       </div>
 
@@ -707,7 +755,6 @@
           </svg>
         </div>
         <div class="skill-name">Game Systems</div>
-        <div class="skill-desc">Progression systems, inventories, shops, monetization, combat and quest mechanics.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div>
       </div>
 
@@ -718,7 +765,6 @@
           </svg>
         </div>
         <div class="skill-name">Roblox Studio</div>
-        <div class="skill-desc">4 years in Studio — full command of the tools, Roblox API, DataStore, leaderboards and services.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="92"></div></div>
       </div>
 
@@ -729,7 +775,6 @@
           </svg>
         </div>
         <div class="skill-name">Teamwork</div>
-        <div class="skill-desc">Clear communication with designers and builders, well-documented code, and a collaborative approach to every project.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="75"></div></div>
       </div>
 
@@ -740,7 +785,6 @@
           </svg>
         </div>
         <div class="skill-name">Optimization</div>
-        <div class="skill-desc">Profiling, reducing server load, object pooling and data caching.</div>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="80"></div></div>
       </div>
 
@@ -755,11 +799,6 @@
       <h2 class="section-title">Examples of Work</h2>
     </div>
     <div class="gallery-grid">
-
-      <!--
-        Photos: name your files screenshot1.png, screenshot2.png, screenshot3.png
-        and upload them to the same folder as this HTML file in your GitHub repo.
-      -->
 
       <div class="gallery-item reveal">
         <img src="screenshot1.png" alt="Project 1" />
@@ -785,10 +824,25 @@
     <div class="reveal">
       <div class="section-label"><span class="sparkle">✦</span> Contact</div>
       <h2 class="section-title">Hire Me</h2>
-      <p style="color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.8;">
-        Open to new projects and orders.<br/>Get in touch and I'll reply quickly!
+      <p style="color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.8; font-weight: 500;">
+        Open to new projects and orders. Get in touch — I reply fast.
       </p>
       <div class="contact-glass">
+
+        <!-- Timezone block -->
+        <div class="tz-block">
+          <div class="tz-left">
+            <div class="tz-dot"></div>
+            <div class="tz-label">
+              My time now
+              <b>UTC +5 · Yekaterinburg</b>
+            </div>
+          </div>
+          <div class="tz-clock" id="tzClock">--:--</div>
+        </div>
+
+        <div class="contact-divider"></div>
+
         <div class="discord-tag">Discord: <b>rmdeveloper</b></div>
         <a href="https://discord.com/users/rmdeveloper" target="_blank" rel="noopener" class="btn btn-glass">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.369A19.79 19.79 0 0 0 15.885 3a14.5 14.5 0 0 0-.657 1.35 18.27 18.27 0 0 0-5.456 0A14.5 14.5 0 0 0 9.115 3a19.736 19.736 0 0 0-4.435 1.371C1.65 8.84.9 13.2 1.276 17.49a19.9 19.9 0 0 0 5.993 3.04 14.6 14.6 0 0 0 1.284-2.084 12.9 12.9 0 0 1-2.04-.98c.171-.125.339-.255.501-.39a14.27 14.27 0 0 0 12.96 0c.165.135.333.265.501.39a12.9 12.9 0 0 1-2.045.982 14.5 14.5 0 0 0 1.284 2.082 19.9 19.9 0 0 0 5.998-3.04c.375-4.29-.375-8.65-2.395-13.121ZM8.02 14.83c-.794 0-1.444-.737-1.444-1.643 0-.906.638-1.644 1.444-1.644.811 0 1.46.744 1.444 1.644 0 .906-.638 1.643-1.444 1.643Zm7.96 0c-.794 0-1.444-.737-1.444-1.643 0-.906.638-1.644 1.444-1.644.811 0 1.46.744 1.444 1.644 0 .906-.633 1.643-1.444 1.643Z"/></svg>
@@ -804,6 +858,7 @@
 </footer>
 
 <script>
+  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -817,15 +872,28 @@
       }
     });
   }, { threshold: 0.12 });
-
   reveals.forEach(el => observer.observe(el));
 
+  // Nav shrink on scroll
   window.addEventListener('scroll', () => {
     document.querySelector('nav').style.padding =
       window.scrollY > 60 ? '12px 48px' : '18px 48px';
   });
 
-  // Ambient floating particles for a "living" page
+  // Live clock UTC+5
+  function updateClock() {
+    const now = new Date();
+    const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+    const local = new Date(utc + 5 * 3600000);
+    const h = String(local.getHours()).padStart(2, '0');
+    const m = String(local.getMinutes()).padStart(2, '0');
+    const s = String(local.getSeconds()).padStart(2, '0');
+    document.getElementById('tzClock').textContent = h + ':' + m + ':' + s;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // Ambient particles
   (function () {
     const field = document.getElementById('particleField');
     const count = 26;
@@ -849,4 +917,3 @@
 </script>
 </body>
 </html>
-
