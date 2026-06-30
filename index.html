@@ -9,12 +9,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #050a14;
-      --accent: #1e6fff;
-      --accent2: #00c2ff;
-      --text: #e8f0ff;
-      --muted: #7a9cc4;
-      --glass-border: rgba(255,255,255,0.14);
+      --bg: #faf7f2;
+      --accent: #c2682f;
+      --accent2: #b8560f;
+      --text: #2b2420;
+      --muted: #7a6f63;
+      --glass-border: rgba(43,36,32,0.12);
+      --card-bg: #ffffff;
     }
 
     html { scroll-behavior: smooth; }
@@ -30,80 +31,8 @@
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #1e6fff, #00c2ff);
+      background: var(--accent);
       border-radius: 3px;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.4;
-    }
-
-    .aurora {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(110px);
-      animation: orbDrift ease-in-out infinite;
-    }
-    .orb:nth-child(1) {
-      width: 680px; height: 680px;
-      top: -180px; left: -180px;
-      background: radial-gradient(circle, rgba(30,111,255,0.14), transparent 65%);
-      animation-duration: 26s;
-    }
-    .orb:nth-child(2) {
-      width: 520px; height: 520px;
-      top: 45%; right: -160px;
-      background: radial-gradient(circle, rgba(0,194,255,0.11), transparent 65%);
-      animation-duration: 20s;
-      animation-delay: -7s;
-    }
-    .orb:nth-child(3) {
-      width: 420px; height: 420px;
-      bottom: -80px; left: 28%;
-      background: radial-gradient(circle, rgba(30,111,255,0.09), transparent 65%);
-      animation-duration: 17s;
-      animation-delay: -13s;
-    }
-    @keyframes orbDrift {
-      0%, 100% { transform: translate(0, 0); }
-      33% { transform: translate(28px, -22px); }
-      66% { transform: translate(-18px, 18px); }
-    }
-
-    .particle-field {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .particle {
-      position: absolute;
-      bottom: -10%;
-      border-radius: 50%;
-      background: var(--accent2);
-      box-shadow: 0 0 8px 2px rgba(0,194,255,0.5);
-      opacity: 0;
-      animation: floatUp linear infinite;
-    }
-    @keyframes floatUp {
-      0% { transform: translateY(0) translateX(0); opacity: 0; }
-      10% { opacity: 0.6; }
-      90% { opacity: 0.4; }
-      100% { transform: translateY(-110vh) translateX(var(--drift, 40px)); opacity: 0; }
     }
 
     nav {
@@ -114,17 +43,15 @@
       justify-content: space-between;
       align-items: center;
       padding: 18px 48px;
-      background: rgba(5,10,20,0.82);
+      background: rgba(250,247,242,0.92);
       backdrop-filter: blur(18px) saturate(180%);
-      border-bottom: 1px solid rgba(30,111,255,0.14);
+      border-bottom: 1px solid var(--glass-border);
       transition: padding 0.3s, background 0.3s;
     }
     nav .logo {
       font-size: 1.05rem;
       font-weight: 900;
-      background: linear-gradient(90deg, #1e6fff, #00c2ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--accent2);
       letter-spacing: 3px;
     }
     nav ul { list-style: none; display: flex; gap: 32px; }
@@ -144,11 +71,11 @@
       position: absolute;
       left: 0; bottom: -4px;
       width: 0%; height: 2px;
-      background: linear-gradient(90deg, #1e6fff, #00c2ff);
+      background: var(--accent2);
       border-radius: 2px;
       transition: width 0.28s cubic-bezier(0.4,0,0.2,1);
     }
-    nav ul li a:hover { color: #fff; }
+    nav ul li a:hover { color: var(--text); }
     nav ul li a:hover::after { width: 100%; }
 
     #hero {
@@ -164,73 +91,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 72% 52% at 50% 46%, rgba(30,111,255,0.2) 0%, transparent 70%),
-        radial-gradient(ellipse 38% 34% at 78% 20%, rgba(0,194,255,0.1) 0%, transparent 65%),
-        linear-gradient(180deg, #050a14 0%, #0a1628 100%);
-    }
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(30,111,255,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(30,111,255,0.06) 1px, transparent 1px);
-      background-size: 60px 60px;
-      animation: gridMove 22s linear infinite;
-      mask-image: radial-gradient(ellipse 70% 62% at 50% 50%, black 15%, transparent 80%);
-      -webkit-mask-image: radial-gradient(ellipse 70% 62% at 50% 50%, black 15%, transparent 80%);
-    }
-    @keyframes gridMove { to { transform: translateY(60px); } }
-
-    .hero-ring {
-      --rsize: 500px;
-      --dsize: 7px;
-      position: absolute;
-      width: var(--rsize); height: var(--rsize);
-      border-radius: 50%;
-      top: 50%; left: 50%;
-      margin: calc(var(--rsize) / -2) 0 0 calc(var(--rsize) / -2);
-      pointer-events: none;
-      border: 1px solid rgba(30,111,255,0.1);
-    }
-    .hero-ring::before {
-      content: '';
-      position: absolute;
-      width: var(--dsize); height: var(--dsize);
-      border-radius: 50%;
-      background: var(--accent2);
-      top: calc(var(--dsize) / -2);
-      left: calc(50% - var(--dsize) / 2);
-      box-shadow: 0 0 14px 5px rgba(0,194,255,0.5);
-      animation: orbit 10s linear infinite;
-      transform-origin: calc(var(--dsize) / 2) calc(var(--rsize) / 2 + var(--dsize) / 2);
-    }
-    .hero-ring-2 {
-      --rsize: 730px;
-      --dsize: 5px;
-      position: absolute;
-      width: var(--rsize); height: var(--rsize);
-      border-radius: 50%;
-      top: 50%; left: 50%;
-      margin: calc(var(--rsize) / -2) 0 0 calc(var(--rsize) / -2);
-      pointer-events: none;
-      border: 1px solid rgba(30,111,255,0.05);
-    }
-    .hero-ring-2::before {
-      content: '';
-      position: absolute;
-      width: var(--dsize); height: var(--dsize);
-      border-radius: 50%;
-      background: #1e6fff;
-      top: calc(var(--dsize) / -2);
-      left: calc(50% - var(--dsize) / 2);
-      box-shadow: 0 0 10px 4px rgba(30,111,255,0.45);
-      animation: orbit 17s linear infinite reverse;
-      transform-origin: calc(var(--dsize) / 2) calc(var(--rsize) / 2 + var(--dsize) / 2);
-    }
-    @keyframes orbit {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      background: var(--bg);
     }
 
     .hero-content { position: relative; z-index: 1; }
@@ -243,13 +104,12 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--accent2);
-      border: 1px solid rgba(0,194,255,0.28);
+      border: 1px solid rgba(184,86,15,0.3);
       padding: 8px 20px;
       border-radius: 99px;
       margin-bottom: 28px;
       animation: fadeUp 0.8s ease both;
-      background: rgba(0,194,255,0.05);
-      backdrop-filter: blur(8px);
+      background: rgba(184,86,15,0.05);
     }
 
     .hero-name {
@@ -257,9 +117,7 @@
       font-weight: 900;
       line-height: 1;
       letter-spacing: -2px;
-      background: linear-gradient(135deg, #ffffff 0%, #a8ceff 40%, #00c2ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--text);
       animation: fadeUp 0.8s ease 0.2s both;
     }
 
@@ -272,7 +130,7 @@
       animation: fadeUp 0.8s ease 0.4s both;
     }
     .hero-title span { color: var(--accent2); }
-    .hero-title .dot { color: rgba(30,111,255,0.4); margin: 0 6px; }
+    .hero-title .dot { color: rgba(184,86,15,0.4); margin: 0 6px; }
 
     .hero-cta {
       margin-top: 44px;
@@ -300,14 +158,12 @@
       position: absolute;
       right: 0; top: 12%; height: 76%;
       width: 1px;
-      background: linear-gradient(180deg, transparent, rgba(30,111,255,0.4), transparent);
+      background: var(--glass-border);
     }
     .stat-num {
       font-size: clamp(1.8rem, 3.5vw, 2.4rem);
       font-weight: 900;
-      background: linear-gradient(135deg, #1e6fff, #00c2ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--accent2);
       display: block;
     }
     .stat-label {
@@ -318,17 +174,6 @@
       text-transform: uppercase;
       display: block;
       font-weight: 600;
-    }
-
-    .hero-sparkle {
-      position: absolute;
-      color: var(--accent2);
-      filter: drop-shadow(0 0 8px rgba(0,194,255,0.5));
-      animation: sparklePulse 3s ease-in-out infinite;
-    }
-    @keyframes sparklePulse {
-      0%, 100% { opacity: 0.3; transform: scale(0.85) rotate(0deg); }
-      50% { opacity: 0.75; transform: scale(1.15) rotate(8deg); }
     }
 
     @keyframes fadeUp {
@@ -353,60 +198,26 @@
       border: none;
     }
     .btn-primary {
-      background: linear-gradient(135deg, #1e6fff, #0eadff);
+      background: var(--accent2);
       color: #fff;
-      box-shadow: 0 4px 20px rgba(30,111,255,0.45);
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-primary::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
+      box-shadow: 0 4px 16px rgba(184,86,15,0.3);
     }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(30,111,255,0.65);
+      box-shadow: 0 8px 24px rgba(184,86,15,0.4);
     }
-    .btn-primary:hover::after { opacity: 1; }
 
     .btn-glass {
-      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      background: #fff;
       color: var(--text);
-      border: 1px solid rgba(255,255,255,0.18);
-      backdrop-filter: blur(14px) saturate(160%);
-      -webkit-backdrop-filter: blur(14px) saturate(160%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 8px 24px rgba(0,0,0,0.3);
-      position: relative;
-      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 4px 14px rgba(43,36,32,0.06);
     }
-    .btn-glass::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -70%;
-      width: 45%; height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
-      transform: skewX(-20deg);
-      transition: left 0.6s ease;
-    }
-    .btn-glass:hover::before { left: 130%; }
+    .btn-glass svg { width: 16px; height: 16px; flex-shrink: 0; }
     .btn-glass:hover {
       transform: translateY(-2px);
-      border-color: rgba(0,194,255,0.4);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 8px 28px rgba(30,111,255,0.25);
-    }
-    .btn-glass svg { width: 16px; height: 16px; flex-shrink: 0; position: relative; z-index: 1; }
-    .btn-ghost {
-      background: transparent;
-      color: var(--accent2);
-      border: 1px solid rgba(0,194,255,0.32);
-    }
-    .btn-ghost:hover {
-      background: rgba(0,194,255,0.08);
-      transform: translateY(-2px);
+      border-color: rgba(184,86,15,0.35);
+      box-shadow: 0 8px 22px rgba(184,86,15,0.12);
     }
 
     section { padding: 100px 24px; position: relative; z-index: 1; }
@@ -427,7 +238,7 @@
       display: inline-block;
       width: 18px; height: 1px;
       background: var(--accent2);
-      opacity: 0.45;
+      opacity: 0.5;
     }
 
     .section-title {
@@ -437,25 +248,19 @@
       letter-spacing: -0.5px;
       position: relative;
       display: inline-block;
+      color: var(--text);
     }
     .section-title::after {
       content: '';
       position: absolute;
       bottom: -12px; left: 0;
       width: 40px; height: 3px;
-      background: linear-gradient(90deg, #1e6fff, #00c2ff);
+      background: var(--accent2);
       border-radius: 2px;
     }
 
-    .sparkle {
-      display: inline-block;
-      color: var(--accent2);
-      filter: drop-shadow(0 0 5px rgba(0,194,255,0.5));
-    }
+    .sparkle { display: inline-block; color: var(--accent2); }
 
-    #about {
-      background: linear-gradient(180deg, transparent, rgba(10,22,40,0.3) 50%, transparent);
-    }
     #about .about-grid {
       display: grid;
       grid-template-columns: 1fr 1.6fr;
@@ -467,32 +272,14 @@
       position: relative;
       border-radius: 24px;
       padding: 40px 28px;
-      background: linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+      background: var(--card-bg);
       border: 1px solid var(--glass-border);
-      backdrop-filter: blur(20px) saturate(160%);
-      -webkit-backdrop-filter: blur(20px) saturate(160%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 16px 48px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 30px rgba(43,36,32,0.06);
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       gap: 20px;
-      overflow: hidden;
-    }
-    .about-glass-panel::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,194,255,0.5), transparent);
-    }
-    .about-glass-panel::after {
-      content: '';
-      position: absolute;
-      top: -50%; left: -20%;
-      width: 70%; height: 70%;
-      background: radial-gradient(circle, rgba(0,194,255,0.11), transparent 70%);
-      pointer-events: none;
     }
 
     .about-glass-icon {
@@ -501,26 +288,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, rgba(30,111,255,0.35), rgba(0,194,255,0.18));
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 0 28px rgba(30,111,255,0.28), inset 0 1px 0 rgba(255,255,255,0.3);
-      position: relative;
-      z-index: 1;
+      background: rgba(184,86,15,0.1);
+      border: 1px solid rgba(184,86,15,0.2);
     }
     .about-glass-icon svg {
       width: 42px; height: 42px;
-      color: #fff;
-      filter: drop-shadow(0 0 8px rgba(0,194,255,0.65));
+      color: var(--accent2);
     }
 
     .about-glass-panel .handle {
-      position: relative;
-      z-index: 1;
       font-weight: 900;
       font-size: 1.12rem;
-      background: linear-gradient(90deg, #1e6fff, #00c2ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--accent2);
       letter-spacing: 1px;
     }
     .about-glass-panel .tag-row {
@@ -528,8 +307,6 @@
       gap: 8px;
       flex-wrap: wrap;
       justify-content: center;
-      position: relative;
-      z-index: 1;
     }
     .mini-tag {
       font-size: 0.65rem;
@@ -537,8 +314,8 @@
       text-transform: uppercase;
       padding: 6px 14px;
       border-radius: 99px;
-      background: rgba(30,111,255,0.1);
-      border: 1px solid rgba(30,111,255,0.28);
+      background: rgba(184,86,15,0.08);
+      border: 1px solid rgba(184,86,15,0.22);
       color: var(--accent2);
       font-weight: 600;
     }
@@ -552,9 +329,6 @@
     }
     .about-text p strong { color: var(--text); font-weight: 700; }
 
-    #skills {
-      background: linear-gradient(180deg, transparent, rgba(10,22,40,0.2) 50%, transparent);
-    }
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -562,40 +336,18 @@
     }
 
     .skill-card {
-      background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
       border-radius: 20px;
       padding: 28px 24px;
       transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.13), 0 8px 24px rgba(0,0,0,0.28);
-      position: relative;
-      overflow: hidden;
-    }
-    .skill-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #1e6fff 30%, #00c2ff 70%, transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .skill-card::after {
-      content: '';
-      position: absolute;
-      top: -40%; left: -15%;
-      width: 55%; height: 55%;
-      background: radial-gradient(circle, rgba(0,194,255,0.09), transparent 70%);
-      pointer-events: none;
+      box-shadow: 0 6px 20px rgba(43,36,32,0.05);
     }
     .skill-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(0,194,255,0.3);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 16px 40px rgba(30,111,255,0.18);
+      border-color: rgba(184,86,15,0.3);
+      box-shadow: 0 14px 32px rgba(184,86,15,0.1);
     }
-    .skill-card:hover::before { opacity: 1; }
 
     .skill-icon {
       width: 52px; height: 52px;
@@ -604,17 +356,11 @@
       justify-content: center;
       margin-bottom: 16px;
       border-radius: 14px;
-      background: linear-gradient(135deg, rgba(30,111,255,0.22), rgba(0,194,255,0.1));
-      border: 1px solid rgba(255,255,255,0.16);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.24), 0 4px 10px rgba(30,111,255,0.16);
-      position: relative;
-      z-index: 1;
+      background: rgba(184,86,15,0.08);
+      border: 1px solid rgba(184,86,15,0.18);
       color: var(--accent2);
     }
-    .skill-icon svg {
-      width: 24px; height: 24px;
-      filter: drop-shadow(0 0 4px rgba(0,194,255,0.45));
-    }
+    .skill-icon svg { width: 24px; height: 24px; }
     .skill-name {
       font-size: 0.8rem;
       font-weight: 800;
@@ -622,32 +368,26 @@
       text-transform: uppercase;
       margin-bottom: 10px;
       color: var(--text);
-      position: relative; z-index: 1;
     }
     .skill-desc {
       font-size: 0.84rem;
       color: var(--muted);
       line-height: 1.7;
       font-weight: 500;
-      position: relative; z-index: 1;
     }
-    .skill-bar-wrap {
-      margin-top: 18px;
-      position: relative; z-index: 1;
-    }
+    .skill-bar-wrap { margin-top: 18px; }
     .skill-bar-track {
       height: 4px;
-      background: rgba(255,255,255,0.07);
+      background: rgba(43,36,32,0.08);
       border-radius: 99px;
       overflow: hidden;
     }
     .skill-bar {
       height: 100%;
       border-radius: 99px;
-      background: linear-gradient(90deg, #1e6fff, #00c2ff);
+      background: var(--accent2);
       width: 0;
       transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
-      box-shadow: 0 0 8px rgba(0,194,255,0.45);
     }
     .skill-bar-pct {
       text-align: right;
@@ -659,8 +399,6 @@
     }
     .skill-code-btn {
       margin-top: 16px;
-      position: relative;
-      z-index: 1;
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -668,8 +406,8 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--accent2);
-      background: rgba(0,194,255,0.07);
-      border: 1px solid rgba(0,194,255,0.25);
+      background: rgba(184,86,15,0.06);
+      border: 1px solid rgba(184,86,15,0.22);
       padding: 8px 14px;
       border-radius: 8px;
       cursor: pointer;
@@ -678,15 +416,12 @@
       transition: background 0.2s, border-color 0.2s;
     }
     .skill-code-btn:hover {
-      background: rgba(0,194,255,0.14);
-      border-color: rgba(0,194,255,0.45);
+      background: rgba(184,86,15,0.12);
+      border-color: rgba(184,86,15,0.4);
     }
     .skill-code-btn svg { width: 13px; height: 13px; }
 
-    #gallery {
-      background: linear-gradient(180deg, transparent, rgba(10,22,40,0.3) 50%, transparent);
-    }
-    #gallery .gallery-grid {
+    .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
@@ -695,15 +430,14 @@
     .gallery-item {
       border-radius: 20px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(13,33,71,0.35);
-      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      background: var(--card-bg);
       transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s, border-color 0.35s;
     }
     .gallery-item:hover {
       transform: translateY(-7px);
-      box-shadow: 0 22px 52px rgba(30,111,255,0.22);
-      border-color: rgba(0,194,255,0.3);
+      box-shadow: 0 18px 40px rgba(184,86,15,0.12);
+      border-color: rgba(184,86,15,0.25);
     }
     .gallery-item-img { position: relative; overflow: hidden; }
     .gallery-item img {
@@ -720,7 +454,7 @@
       color: var(--muted);
       font-weight: 600;
       letter-spacing: 0.5px;
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid var(--glass-border);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -730,8 +464,7 @@
       width: 6px; height: 6px;
       border-radius: 50%;
       flex-shrink: 0;
-      background: linear-gradient(135deg, #1e6fff, #00c2ff);
-      box-shadow: 0 0 6px rgba(0,194,255,0.5);
+      background: var(--accent2);
     }
     .gallery-note {
       padding: 0 18px 16px 34px;
@@ -742,32 +475,17 @@
       opacity: 0.85;
     }
 
-    /* ─── TERMS ─── */
-    #terms {
-      background: linear-gradient(180deg, transparent, rgba(10,22,40,0.25) 50%, transparent);
-    }
     .terms-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
     }
     .term-card {
-      background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
       border-radius: 20px;
       padding: 26px 24px;
-      backdrop-filter: blur(14px);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.13), 0 8px 24px rgba(0,0,0,0.28);
-      position: relative;
-      overflow: hidden;
-    }
-    .term-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #1e6fff 30%, #00c2ff 70%, transparent);
-      opacity: 0.6;
+      box-shadow: 0 6px 20px rgba(43,36,32,0.05);
     }
     .term-num {
       font-size: 0.7rem;
@@ -791,9 +509,7 @@
     }
 
     #contact { text-align: center; }
-    #contact .section-label {
-      justify-content: center;
-    }
+    #contact .section-label { justify-content: center; }
     #contact .section-label::before { display: none; }
     #contact .section-title::after {
       left: 50%;
@@ -805,54 +521,28 @@
       margin: 40px auto 0;
       padding: 40px 32px;
       border-radius: 24px;
-      background: linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+      background: var(--card-bg);
       border: 1px solid var(--glass-border);
-      backdrop-filter: blur(20px) saturate(160%);
-      -webkit-backdrop-filter: blur(20px) saturate(160%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 20px 60px rgba(0,0,0,0.4);
+      box-shadow: 0 16px 40px rgba(43,36,32,0.08);
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-    .contact-glass::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,194,255,0.5), transparent);
-    }
-    .contact-glass::after {
-      content: '';
-      position: absolute;
-      top: -50%; left: -20%;
-      width: 70%; height: 70%;
-      background: radial-gradient(circle, rgba(30,111,255,0.1), transparent 70%);
-      pointer-events: none;
     }
     .contact-glass .discord-tag {
       font-size: 0.88rem;
       color: var(--text);
-      background: rgba(88,101,242,0.1);
-      border: 1px solid rgba(88,101,242,0.28);
+      background: rgba(184,86,15,0.06);
+      border: 1px solid rgba(184,86,15,0.2);
       padding: 10px 20px;
       border-radius: 99px;
       font-weight: 600;
       letter-spacing: 0.5px;
-      position: relative; z-index: 1;
     }
-    .contact-glass .discord-tag b {
-      color: var(--accent2);
-      font-weight: 800;
-    }
-    .contact-glass .btn-glass { position: relative; z-index: 1; }
+    .contact-glass .discord-tag b { color: var(--accent2); font-weight: 800; }
     .contact-meta {
       font-size: 0.74rem;
       color: var(--muted);
-      position: relative;
-      z-index: 1;
       font-weight: 500;
       letter-spacing: 0.3px;
     }
@@ -863,7 +553,7 @@
       color: var(--muted);
       font-size: 0.76rem;
       font-weight: 500;
-      border-top: 1px solid rgba(30,111,255,0.1);
+      border-top: 1px solid var(--glass-border);
       letter-spacing: 0.5px;
     }
 
@@ -874,11 +564,10 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── CODE MODAL ─── */
     .code-modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(2,5,12,0.78);
+      background: rgba(43,36,32,0.45);
       backdrop-filter: blur(6px);
       z-index: 1000;
       display: none;
@@ -891,10 +580,10 @@
       width: 100%;
       max-width: 640px;
       max-height: 80vh;
-      background: linear-gradient(160deg, rgba(13,22,40,0.97), rgba(8,14,26,0.99));
+      background: var(--card-bg);
       border: 1px solid var(--glass-border);
       border-radius: 18px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 30px 80px rgba(0,0,0,0.6);
+      box-shadow: 0 30px 70px rgba(43,36,32,0.25);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -909,8 +598,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 16px 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid var(--glass-border);
     }
     .code-modal-title {
       font-size: 0.78rem;
@@ -920,8 +608,8 @@
       color: var(--accent2);
     }
     .code-modal-close {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(43,36,32,0.06);
+      border: 1px solid var(--glass-border);
       color: var(--text);
       width: 28px; height: 28px;
       border-radius: 8px;
@@ -931,26 +619,24 @@
       display: flex; align-items: center; justify-content: center;
       transition: background 0.2s;
     }
-    .code-modal-close:hover { background: rgba(255,80,80,0.18); }
-    .code-modal-body {
-      padding: 0;
-      overflow-y: auto;
-    }
+    .code-modal-close:hover { background: rgba(184,86,15,0.15); }
+    .code-modal-body { padding: 0; overflow-y: auto; }
     .code-modal-body pre {
       margin: 0;
       padding: 20px;
       font-family: 'Consolas', 'Monaco', monospace;
       font-size: 0.78rem;
       line-height: 1.65;
-      color: #c8e0ff;
+      color: var(--text);
       white-space: pre-wrap;
       word-break: break-word;
+      background: #fbf8f3;
     }
     .code-modal-foot {
       padding: 12px 20px;
       font-size: 0.7rem;
       color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid var(--glass-border);
       font-weight: 500;
     }
 
@@ -961,23 +647,14 @@
       #about .about-grid { grid-template-columns: 1fr; gap: 36px; }
       .hero-stats { flex-wrap: wrap; }
       .stat { padding: 14px 22px; }
-      .hero-ring, .hero-ring-2 { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, .hero-grid, .particle, .orb { animation: none !important; transition: none !important; }
+      *, .reveal { animation: none !important; transition: none !important; }
     }
   </style>
 </head>
 <body>
-
-<div class="aurora">
-  <div class="orb"></div>
-  <div class="orb"></div>
-  <div class="orb"></div>
-</div>
-
-<div class="particle-field" id="particleField"></div>
 
 <nav>
   <div class="logo">RAF_MEMES</div>
@@ -992,15 +669,8 @@
 
 <section id="hero">
   <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-ring"></div>
-  <div class="hero-ring-2"></div>
-  <span class="hero-sparkle" style="top:22%; left:12%; font-size:1.6rem; animation-delay:0s;">✦</span>
-  <span class="hero-sparkle" style="top:65%; left:18%; font-size:1rem; animation-delay:1s;">✦</span>
-  <span class="hero-sparkle" style="top:30%; right:14%; font-size:1.3rem; animation-delay:1.6s;">✦</span>
-  <span class="hero-sparkle" style="top:70%; right:10%; font-size:1.8rem; animation-delay:0.6s;">✦</span>
   <div class="hero-content">
-    <div class="hero-tag">✦ Roblox Developer</div>
+    <div class="hero-tag">Roblox Developer</div>
     <h1 class="hero-name">Raf_Memes</h1>
     <p class="hero-title">Luau Scripter <span class="dot">·</span> <span>UI Designer</span> <span class="dot">·</span> Taking Orders</p>
     <div class="hero-cta">
@@ -1045,9 +715,9 @@
       </div>
       <div class="about-text reveal">
         <div class="section-label"><span class="sparkle">✦</span> About Me</div>
-        <h2 class="section-title">yo, i'm raf_memes</h2>
-        <p>been building stuff in roblox studio for 3-4 years now, writing my own scripts and putting games together from scratch, no templates, no shortcuts</p>
-        <p>mostly worked solo on my own projects so far, never really been in a team, but i'm opening up for orders now, same focus i put into my own stuff is going into yours, just gonna take it as seriously as if it was mine</p>
+        <h2 class="section-title">Yo, im Raf_Memes</h2>
+        <p>Ive been creating games in Roblox Studio for 3-4 years, writing my own scripts and building everything from scratch.</p>
+        <p>I usually did this for myself and rarely worked in teams, but now im ready to take on orders. Same focus and dedication I put into my own projects, applied to yours.</p>
       </div>
     </div>
   </div>
@@ -1057,7 +727,7 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label"><span class="sparkle">✦</span> Skills</div>
-      <h2 class="section-title">what i do</h2>
+      <h2 class="section-title">What I Do</h2>
     </div>
     <div class="skills-grid">
 
@@ -1068,14 +738,14 @@
           </svg>
         </div>
         <div class="skill-name">Luau Scripting</div>
-        <div class="skill-desc">i write basically all my scripts myself, barely touch ai for the actual logic, mostly focused on anti cheat and making stuff run clean</div>
+        <div class="skill-desc">I try to write all my scripts myself and rarely ask AI for help. I focus primarily on anti-cheat and optimization.</div>
         <div class="skill-bar-wrap">
           <div class="skill-bar-track"><div class="skill-bar" data-width="95"></div></div>
           <div class="skill-bar-pct" data-pct="95">0%</div>
         </div>
         <button class="skill-code-btn" data-modal="code-anticheat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          view code sample
+          View Code Sample
         </button>
       </div>
 
@@ -1086,7 +756,7 @@
           </svg>
         </div>
         <div class="skill-name">UI Design</div>
-        <div class="skill-desc">animated guis, inventories, huds, menus, i know how to make ui that actually feels good to use, not just look nice in a screenshot</div>
+        <div class="skill-desc">I know how to work with animated GUIs, inventories, HUDs, and menus.</div>
         <div class="skill-bar-wrap">
           <div class="skill-bar-track"><div class="skill-bar" data-width="88"></div></div>
           <div class="skill-bar-pct" data-pct="88">0%</div>
@@ -1100,7 +770,7 @@
           </svg>
         </div>
         <div class="skill-name">Roblox Studio</div>
-        <div class="skill-desc">comfortable with motor6d, weldconstraint, the apis, datastores, all the studio mechanics you actually need for a real project</div>
+        <div class="skill-desc">I know Roblox Studio mechanics such as Motor6D, WeldConstraint, APIs, and DataStores.</div>
         <div class="skill-bar-wrap">
           <div class="skill-bar-track"><div class="skill-bar" data-width="92"></div></div>
           <div class="skill-bar-pct" data-pct="92">0%</div>
@@ -1114,14 +784,14 @@
           </svg>
         </div>
         <div class="skill-name">Optimization</div>
-        <div class="skill-desc">profiling, cutting server load, object pooling, data caching, basically making sure your game doesn't chug when it gets players</div>
+        <div class="skill-desc">Profiling, cutting server load, object pooling, data caching, stuff runs well.</div>
         <div class="skill-bar-wrap">
           <div class="skill-bar-track"><div class="skill-bar" data-width="80"></div></div>
           <div class="skill-bar-pct" data-pct="80">0%</div>
         </div>
         <button class="skill-code-btn" data-modal="code-optimization">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          view code sample
+          View Code Sample
         </button>
       </div>
 
@@ -1133,7 +803,7 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label"><span class="sparkle">✦</span> Portfolio</div>
-      <h2 class="section-title">my work</h2>
+      <h2 class="section-title">My Work</h2>
     </div>
     <div class="gallery-grid">
 
@@ -1142,7 +812,7 @@
           <img src="screenshot1.png" alt="Project 1" />
         </div>
         <div class="gallery-caption">Showcase 1 - Stock Shop</div>
-        <div class="gallery-note">restocking shop system, server side stock sync, no exploit dupes</div>
+        <div class="gallery-note">Restocking shop system, server side stock sync, no exploit dupes.</div>
       </div>
 
       <div class="gallery-item reveal">
@@ -1150,7 +820,7 @@
           <img src="screenshot2.png" alt="Project 2" />
         </div>
         <div class="gallery-caption">Showcase 2 - Punch System</div>
-        <div class="gallery-note">combat system, hit detection, animation blending</div>
+        <div class="gallery-note">Combat system, hit detection, animation blending.</div>
       </div>
 
       <div class="gallery-item reveal">
@@ -1158,7 +828,7 @@
           <img src="screenshot3.png" alt="Project 3" />
         </div>
         <div class="gallery-caption">Showcase 3 - Pathfinding NPC</div>
-        <div class="gallery-note">npc pathfinding around dynamic obstacles, custom waypoint logic</div>
+        <div class="gallery-note">NPC pathfinding around dynamic obstacles, custom waypoint logic.</div>
       </div>
 
     </div>
@@ -1169,32 +839,32 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label"><span class="sparkle">✦</span> How I Work</div>
-      <h2 class="section-title">before you message me</h2>
+      <h2 class="section-title">Before You Message Me</h2>
     </div>
     <div class="terms-grid">
 
       <div class="term-card reveal">
         <span class="term-num">01</span>
-        <div class="term-title">payment in parts</div>
-        <div class="term-desc">i split the project into parts, send you 1/4, you check it, i make changes if needed, then i send the next part, you only pay for what you already got and checked</div>
+        <div class="term-title">Payment in parts</div>
+        <div class="term-desc">I split the project into parts, send you 1/4, you check it, I make changes if needed, then I send the next part, you only pay for what you already got and checked.</div>
       </div>
 
       <div class="term-card reveal">
         <span class="term-num">02</span>
-        <div class="term-title">timezone</div>
-        <div class="term-desc">i'm on utc+5, usually online evenings and nights my time, replies might take a bit longer depending when you message, just heads up</div>
+        <div class="term-title">Timezone</div>
+        <div class="term-desc">Im on UTC+5, online mostly during the day. Replies depend on when you message.</div>
       </div>
 
       <div class="term-card reveal">
         <span class="term-num">03</span>
-        <div class="term-title">first time taking orders</div>
-        <div class="term-desc">i've been scripting solo for years but this is new for me as far as working with clients, i'm not gonna oversell myself, i just work the same way i always have, careful and from scratch</div>
+        <div class="term-title">First time taking orders</div>
+        <div class="term-desc">Ive been scripting solo for years but this is new for me as far as working with clients. I work the same way I always have.</div>
       </div>
 
       <div class="term-card reveal">
         <span class="term-num">04</span>
-        <div class="term-title">payment details</div>
-        <div class="term-desc">we figure out the exact payment method and price in discord depending on the project, just message me and we'll sort it out</div>
+        <div class="term-title">Payment details</div>
+        <div class="term-desc">Exact payment method and price depend on the project, discussed in Discord.</div>
       </div>
 
     </div>
@@ -1205,9 +875,9 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label"><span class="sparkle">✦</span> Contact</div>
-      <h2 class="section-title">work with me</h2>
+      <h2 class="section-title">Work With Me</h2>
       <p style="color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.9; font-weight: 500;">
-        open for new projects rn, drop me a message and tell me what you need, we'll figure out the details from there
+        Open for new projects and orders. Drop me a message.
       </p>
       <div class="contact-glass">
         <div class="discord-tag">Discord: <b>rmdeveloper</b></div>
@@ -1215,7 +885,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.369A19.79 19.79 0 0 0 15.885 3a14.5 14.5 0 0 0-.657 1.35 18.27 18.27 0 0 0-5.456 0A14.5 14.5 0 0 0 9.115 3a19.736 19.736 0 0 0-4.435 1.371C1.65 8.84.9 13.2 1.276 17.49a19.9 19.9 0 0 0 5.993 3.04 14.6 14.6 0 0 0 1.284-2.084 12.9 12.9 0 0 1-2.04-.98c.171-.125.339-.255.501-.39a14.27 14.27 0 0 0 12.96 0c.165.135.333.265.501.39a12.9 12.9 0 0 1-2.045.982 14.5 14.5 0 0 0 1.284 2.082 19.9 19.9 0 0 0 5.998-3.04c.375-4.29-.375-8.65-2.395-13.121ZM8.02 14.83c-.794 0-1.444-.737-1.444-1.643 0-.906.638-1.644 1.444-1.644.811 0 1.46.744 1.444 1.644 0 .906-.638 1.643-1.444 1.643Zm7.96 0c-.794 0-1.444-.737-1.444-1.643 0-.906.638-1.644 1.444-1.644.811 0 1.46.744 1.444 1.644 0 .906-.633 1.643-1.444 1.643Z"/></svg>
           Message on Discord
         </a>
-        <div class="contact-meta">usually online evenings / nights, utc+5</div>
+        <div class="contact-meta">UTC+5</div>
       </div>
     </div>
   </div>
@@ -1225,29 +895,27 @@
   <p>© 2026 Raf_Memes · Roblox Luau Dev · Built with love</p>
 </footer>
 
-<!-- ─── CODE MODAL ─── -->
 <div class="code-modal-overlay" id="codeModalOverlay">
   <div class="code-modal">
     <div class="code-modal-head">
-      <span class="code-modal-title" id="codeModalTitle">code sample</span>
+      <span class="code-modal-title" id="codeModalTitle">Code Sample</span>
       <button class="code-modal-close" id="codeModalClose">✕</button>
     </div>
     <div class="code-modal-body">
       <pre id="codeModalBody">-- paste your code here</pre>
     </div>
-    <div class="code-modal-foot">trimmed sample, full logic kept private</div>
+    <div class="code-modal-foot">Trimmed sample, full logic kept private.</div>
   </div>
 </div>
 
 <script>
-  // ─── Code samples (replace placeholder text with real snippets) ───
   const codeSamples = {
     "code-anticheat": {
-      title: "anti cheat - speed check (trimmed)",
+      title: "Anti Cheat Sample",
       code: `-- paste your anti cheat code sample here`
     },
     "code-optimization": {
-      title: "optimization - object pooling (trimmed)",
+      title: "Optimization Sample",
       code: `-- paste your optimization code sample here`
     }
   };
@@ -1275,7 +943,6 @@
     if (e.key === 'Escape') overlay.classList.remove('open');
   });
 
-  // Reveal + skill bar animation
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -1304,31 +971,12 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
 
-  // Nav on scroll
   window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
     const s = window.scrollY > 60;
     nav.style.padding = s ? '12px 48px' : '18px 48px';
-    nav.style.background = s ? 'rgba(5,10,20,0.96)' : 'rgba(5,10,20,0.82)';
+    nav.style.background = s ? 'rgba(250,247,242,0.98)' : 'rgba(250,247,242,0.92)';
   });
-
-  // Particles
-  (function () {
-    const field = document.getElementById('particleField');
-    for (let i = 0; i < 30; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      const size = 2 + Math.random() * 3;
-      p.style.cssText = `
-        left:${Math.random()*100}vw;
-        width:${size}px; height:${size}px;
-        --drift:${Math.random()*80-40}px;
-        animation-duration:${12+Math.random()*16}s;
-        animation-delay:${Math.random()*16}s;
-      `;
-      field.appendChild(p);
-    }
-  })();
 </script>
 </body>
 </html>
