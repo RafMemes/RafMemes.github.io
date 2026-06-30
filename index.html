@@ -44,7 +44,6 @@
       opacity: 0.4;
     }
 
-    /* ─── Ambient orbs ─── */
     .aurora {
       position: fixed;
       inset: 0;
@@ -84,7 +83,6 @@
       66% { transform: translate(-18px, 18px); }
     }
 
-    /* ─── Particles ─── */
     .particle-field {
       position: fixed;
       inset: 0;
@@ -108,7 +106,6 @@
       100% { transform: translateY(-110vh) translateX(var(--drift, 40px)); opacity: 0; }
     }
 
-    /* ─── NAV ─── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -154,7 +151,6 @@
     nav ul li a:hover { color: #fff; }
     nav ul li a:hover::after { width: 100%; }
 
-    /* ─── HERO ─── */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -186,7 +182,6 @@
     }
     @keyframes gridMove { to { transform: translateY(60px); } }
 
-    /* Orbiting rings */
     .hero-ring {
       --rsize: 500px;
       --dsize: 7px;
@@ -288,12 +283,12 @@
       animation: fadeUp 0.8s ease 0.6s both;
     }
 
-    /* Stats */
     .hero-stats {
       display: flex;
       justify-content: center;
       margin-top: 60px;
       animation: fadeUp 0.8s ease 0.8s both;
+      flex-wrap: wrap;
     }
     .stat {
       text-align: center;
@@ -341,7 +336,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ─── BUTTONS ─── */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -405,8 +399,16 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 8px 28px rgba(30,111,255,0.25);
     }
     .btn-glass svg { width: 16px; height: 16px; flex-shrink: 0; position: relative; z-index: 1; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--accent2);
+      border: 1px solid rgba(0,194,255,0.32);
+    }
+    .btn-ghost:hover {
+      background: rgba(0,194,255,0.08);
+      transform: translateY(-2px);
+    }
 
-    /* ─── LAYOUT ─── */
     section { padding: 100px 24px; position: relative; z-index: 1; }
     .container { max-width: 1100px; margin: 0 auto; }
 
@@ -451,7 +453,6 @@
       filter: drop-shadow(0 0 5px rgba(0,194,255,0.5));
     }
 
-    /* ─── ABOUT ─── */
     #about {
       background: linear-gradient(180deg, transparent, rgba(10,22,40,0.3) 50%, transparent);
     }
@@ -551,7 +552,6 @@
     }
     .about-text p strong { color: var(--text); font-weight: 700; }
 
-    /* ─── SKILLS ─── */
     #skills {
       background: linear-gradient(180deg, transparent, rgba(10,22,40,0.2) 50%, transparent);
     }
@@ -573,7 +573,6 @@
       position: relative;
       overflow: hidden;
     }
-    /* Gradient top line on hover */
     .skill-card::before {
       content: '';
       position: absolute;
@@ -658,8 +657,32 @@
       margin-top: 6px;
       font-weight: 700;
     }
+    .skill-code-btn {
+      margin-top: 16px;
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.66rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent2);
+      background: rgba(0,194,255,0.07);
+      border: 1px solid rgba(0,194,255,0.25);
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .skill-code-btn:hover {
+      background: rgba(0,194,255,0.14);
+      border-color: rgba(0,194,255,0.45);
+    }
+    .skill-code-btn svg { width: 13px; height: 13px; }
 
-    /* ─── GALLERY ─── */
     #gallery {
       background: linear-gradient(180deg, transparent, rgba(10,22,40,0.3) 50%, transparent);
     }
@@ -692,7 +715,7 @@
     }
     .gallery-item:hover img { transform: scale(1.05); }
     .gallery-caption {
-      padding: 14px 18px;
+      padding: 14px 18px 6px;
       font-size: 0.8rem;
       color: var(--muted);
       font-weight: 600;
@@ -710,8 +733,63 @@
       background: linear-gradient(135deg, #1e6fff, #00c2ff);
       box-shadow: 0 0 6px rgba(0,194,255,0.5);
     }
+    .gallery-note {
+      padding: 0 18px 16px 34px;
+      font-size: 0.76rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 500;
+      opacity: 0.85;
+    }
 
-    /* ─── CONTACT ─── */
+    /* ─── TERMS ─── */
+    #terms {
+      background: linear-gradient(180deg, transparent, rgba(10,22,40,0.25) 50%, transparent);
+    }
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .term-card {
+      background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 26px 24px;
+      backdrop-filter: blur(14px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.13), 0 8px 24px rgba(0,0,0,0.28);
+      position: relative;
+      overflow: hidden;
+    }
+    .term-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #1e6fff 30%, #00c2ff 70%, transparent);
+      opacity: 0.6;
+    }
+    .term-num {
+      font-size: 0.7rem;
+      color: var(--accent2);
+      letter-spacing: 2px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .term-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .term-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
     #contact { text-align: center; }
     #contact .section-label {
       justify-content: center;
@@ -770,8 +848,15 @@
       font-weight: 800;
     }
     .contact-glass .btn-glass { position: relative; z-index: 1; }
+    .contact-meta {
+      font-size: 0.74rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
 
-    /* ─── FOOTER ─── */
     footer {
       text-align: center;
       padding: 32px;
@@ -782,7 +867,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* ─── REVEAL ─── */
     .reveal {
       opacity: 0;
       transform: translateY(32px);
@@ -790,7 +874,86 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── RESPONSIVE ─── */
+    /* ─── CODE MODAL ─── */
+    .code-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2,5,12,0.78);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .code-modal-overlay.open { display: flex; }
+    .code-modal {
+      width: 100%;
+      max-width: 640px;
+      max-height: 80vh;
+      background: linear-gradient(160deg, rgba(13,22,40,0.97), rgba(8,14,26,0.99));
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 30px 80px rgba(0,0,0,0.6);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: modalIn 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.96) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .code-modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+    }
+    .code-modal-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent2);
+    }
+    .code-modal-close {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text);
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .code-modal-close:hover { background: rgba(255,80,80,0.18); }
+    .code-modal-body {
+      padding: 0;
+      overflow-y: auto;
+    }
+    .code-modal-body pre {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.78rem;
+      line-height: 1.65;
+      color: #c8e0ff;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .code-modal-foot {
+      padding: 12px 20px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-weight: 500;
+    }
+
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
       nav ul { gap: 18px; }
@@ -822,6 +985,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#terms">How I Work</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -881,9 +1045,9 @@
       </div>
       <div class="about-text reveal">
         <div class="section-label"><span class="sparkle">✦</span> About Me</div>
-        <h2 class="section-title">Yo, I'm Raf_Memes</h2>
-        <p>I've been creating games in Roblox Studio for <strong>3–4 years</strong>, writing my own scripts and building everything from scratch.</p>
-        <p>I usually did this for myself and rarely worked in teams, but now I'm ready to take on orders. Same focus and dedication I put into my own projects — applied to yours.</p>
+        <h2 class="section-title">yo, i'm raf_memes</h2>
+        <p>been building stuff in roblox studio for 3-4 years now, writing my own scripts and putting games together from scratch, no templates, no shortcuts</p>
+        <p>mostly worked solo on my own projects so far, never really been in a team, but i'm opening up for orders now, same focus i put into my own stuff is going into yours, just gonna take it as seriously as if it was mine</p>
       </div>
     </div>
   </div>
@@ -893,7 +1057,7 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label"><span class="sparkle">✦</span> Skills</div>
-      <h2 class="section-title">What I Do</h2>
+      <h2 class="section-title">what i do</h2>
     </div>
     <div class="skills-grid">
 
@@ -904,11 +1068,15 @@
           </svg>
         </div>
         <div class="skill-name">Luau Scripting</div>
-        <div class="skill-desc">I try to write all my scripts myself and rarely ask AI for help. I focus primarily on anti-cheat and optimization.</div>
+        <div class="skill-desc">i write basically all my scripts myself, barely touch ai for the actual logic, mostly focused on anti cheat and making stuff run clean</div>
         <div class="skill-bar-wrap">
           <div class="skill-bar-track"><div class="skill-bar" data-width="95"></div></div>
           <div class="skill-bar-pct" data-pct="95">0%</div>
         </div>
+        <button class="skill-code-btn" data-modal="code-anticheat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          view code sample
+        </button>
       </div>
 
       <div class="skill-card reveal">
@@ -918,7 +1086,7 @@
           </svg>
         </div>
         <div class="skill-name">UI Design</div>
-        <div class="skill-desc">I know how to work with animated GUIs, inventories, HUDs, and menus.</div>
+        <div class="skill-desc">animated guis, inventories, huds, menus, i know how to make ui that actually feels good to use, not just look nice in a screenshot</div>
         <div class="skill-bar-wrap">
           <div class="skill-bar-track"><div class="skill-bar" data-width="88"></div></div>
           <div class="skill-bar-pct" data-pct="88">0%</div>
@@ -932,7 +1100,7 @@
           </svg>
         </div>
         <div class="skill-name">Roblox Studio</div>
-        <div class="skill-desc">I know Roblox Studio mechanics such as Motor6D, WeldConstraint, APIs, and DataStores.</div>
+        <div class="skill-desc">comfortable with motor6d, weldconstraint, the apis, datastores, all the studio mechanics you actually need for a real project</div>
         <div class="skill-bar-wrap">
           <div class="skill-bar-track"><div class="skill-bar" data-width="92"></div></div>
           <div class="skill-bar-pct" data-pct="92">0%</div>
@@ -946,11 +1114,15 @@
           </svg>
         </div>
         <div class="skill-name">Optimization</div>
-        <div class="skill-desc">Profiling, cutting server load, object pooling, data caching — stuff runs well.</div>
+        <div class="skill-desc">profiling, cutting server load, object pooling, data caching, basically making sure your game doesn't chug when it gets players</div>
         <div class="skill-bar-wrap">
           <div class="skill-bar-track"><div class="skill-bar" data-width="80"></div></div>
           <div class="skill-bar-pct" data-pct="80">0%</div>
         </div>
+        <button class="skill-code-btn" data-modal="code-optimization">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          view code sample
+        </button>
       </div>
 
     </div>
@@ -961,7 +1133,7 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label"><span class="sparkle">✦</span> Portfolio</div>
-      <h2 class="section-title">My Work</h2>
+      <h2 class="section-title">my work</h2>
     </div>
     <div class="gallery-grid">
 
@@ -970,6 +1142,7 @@
           <img src="screenshot1.png" alt="Project 1" />
         </div>
         <div class="gallery-caption">Showcase 1 - Stock Shop</div>
+        <div class="gallery-note">restocking shop system, server side stock sync, no exploit dupes</div>
       </div>
 
       <div class="gallery-item reveal">
@@ -977,6 +1150,7 @@
           <img src="screenshot2.png" alt="Project 2" />
         </div>
         <div class="gallery-caption">Showcase 2 - Punch System</div>
+        <div class="gallery-note">combat system, hit detection, animation blending</div>
       </div>
 
       <div class="gallery-item reveal">
@@ -984,6 +1158,43 @@
           <img src="screenshot3.png" alt="Project 3" />
         </div>
         <div class="gallery-caption">Showcase 3 - Pathfinding NPC</div>
+        <div class="gallery-note">npc pathfinding around dynamic obstacles, custom waypoint logic</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="terms">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label"><span class="sparkle">✦</span> How I Work</div>
+      <h2 class="section-title">before you message me</h2>
+    </div>
+    <div class="terms-grid">
+
+      <div class="term-card reveal">
+        <span class="term-num">01</span>
+        <div class="term-title">payment in parts</div>
+        <div class="term-desc">i split the project into parts, send you 1/4, you check it, i make changes if needed, then i send the next part, you only pay for what you already got and checked</div>
+      </div>
+
+      <div class="term-card reveal">
+        <span class="term-num">02</span>
+        <div class="term-title">timezone</div>
+        <div class="term-desc">i'm on utc+5, usually online evenings and nights my time, replies might take a bit longer depending when you message, just heads up</div>
+      </div>
+
+      <div class="term-card reveal">
+        <span class="term-num">03</span>
+        <div class="term-title">first time taking orders</div>
+        <div class="term-desc">i've been scripting solo for years but this is new for me as far as working with clients, i'm not gonna oversell myself, i just work the same way i always have, careful and from scratch</div>
+      </div>
+
+      <div class="term-card reveal">
+        <span class="term-num">04</span>
+        <div class="term-title">payment details</div>
+        <div class="term-desc">we figure out the exact payment method and price in discord depending on the project, just message me and we'll sort it out</div>
       </div>
 
     </div>
@@ -994,9 +1205,9 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label"><span class="sparkle">✦</span> Contact</div>
-      <h2 class="section-title">Work With Me</h2>
+      <h2 class="section-title">work with me</h2>
       <p style="color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.9; font-weight: 500;">
-        Open for new projects and orders.<br/>Drop me a message.
+        open for new projects rn, drop me a message and tell me what you need, we'll figure out the details from there
       </p>
       <div class="contact-glass">
         <div class="discord-tag">Discord: <b>rmdeveloper</b></div>
@@ -1004,6 +1215,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.369A19.79 19.79 0 0 0 15.885 3a14.5 14.5 0 0 0-.657 1.35 18.27 18.27 0 0 0-5.456 0A14.5 14.5 0 0 0 9.115 3a19.736 19.736 0 0 0-4.435 1.371C1.65 8.84.9 13.2 1.276 17.49a19.9 19.9 0 0 0 5.993 3.04 14.6 14.6 0 0 0 1.284-2.084 12.9 12.9 0 0 1-2.04-.98c.171-.125.339-.255.501-.39a14.27 14.27 0 0 0 12.96 0c.165.135.333.265.501.39a12.9 12.9 0 0 1-2.045.982 14.5 14.5 0 0 0 1.284 2.082 19.9 19.9 0 0 0 5.998-3.04c.375-4.29-.375-8.65-2.395-13.121ZM8.02 14.83c-.794 0-1.444-.737-1.444-1.643 0-.906.638-1.644 1.444-1.644.811 0 1.46.744 1.444 1.644 0 .906-.638 1.643-1.444 1.643Zm7.96 0c-.794 0-1.444-.737-1.444-1.643 0-.906.638-1.644 1.444-1.644.811 0 1.46.744 1.444 1.644 0 .906-.633 1.643-1.444 1.643Z"/></svg>
           Message on Discord
         </a>
+        <div class="contact-meta">usually online evenings / nights, utc+5</div>
       </div>
     </div>
   </div>
@@ -1013,7 +1225,56 @@
   <p>© 2026 Raf_Memes · Roblox Luau Dev · Built with love</p>
 </footer>
 
+<!-- ─── CODE MODAL ─── -->
+<div class="code-modal-overlay" id="codeModalOverlay">
+  <div class="code-modal">
+    <div class="code-modal-head">
+      <span class="code-modal-title" id="codeModalTitle">code sample</span>
+      <button class="code-modal-close" id="codeModalClose">✕</button>
+    </div>
+    <div class="code-modal-body">
+      <pre id="codeModalBody">-- paste your code here</pre>
+    </div>
+    <div class="code-modal-foot">trimmed sample, full logic kept private</div>
+  </div>
+</div>
+
 <script>
+  // ─── Code samples (replace placeholder text with real snippets) ───
+  const codeSamples = {
+    "code-anticheat": {
+      title: "anti cheat - speed check (trimmed)",
+      code: `-- paste your anti cheat code sample here`
+    },
+    "code-optimization": {
+      title: "optimization - object pooling (trimmed)",
+      code: `-- paste your optimization code sample here`
+    }
+  };
+
+  const overlay = document.getElementById('codeModalOverlay');
+  const modalTitle = document.getElementById('codeModalTitle');
+  const modalBody = document.getElementById('codeModalBody');
+  const modalClose = document.getElementById('codeModalClose');
+
+  document.querySelectorAll('.skill-code-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.modal;
+      const sample = codeSamples[key];
+      if (!sample) return;
+      modalTitle.textContent = sample.title;
+      modalBody.textContent = sample.code;
+      overlay.classList.add('open');
+    });
+  });
+  modalClose.addEventListener('click', () => overlay.classList.remove('open'));
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) overlay.classList.remove('open');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') overlay.classList.remove('open');
+  });
+
   // Reveal + skill bar animation
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
