@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Raf_Memes | Roblox Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -17,6 +19,8 @@
       --muted: #a89b8c;
       --glass-border: rgba(242,236,228,0.10);
       --card-bg: #211c17;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Inter', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -24,9 +28,13 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
+      font-family: var(--font-body);
+      font-weight: 500;
       overflow-x: hidden;
+    }
+
+    h1, h2, h3, .hero-name, .section-title, .term-title, .skill-name, .about-glass-panel .handle {
+      font-family: var(--font-display);
     }
 
     ::-webkit-scrollbar { width: 5px; }
@@ -50,10 +58,11 @@
       transition: padding 0.3s, background 0.3s;
     }
     nav .logo {
-      font-size: 1.05rem;
-      font-weight: 900;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
       color: var(--accent2);
-      letter-spacing: 3px;
+      letter-spacing: 1.5px;
     }
     nav ul { list-style: none; display: flex; gap: 32px; }
     nav ul li a {
@@ -104,6 +113,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      font-family: var(--font-body);
       font-size: 0.68rem;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -118,18 +128,20 @@
 
     .hero-name {
       font-size: clamp(3rem, 9vw, 6.5rem);
-      font-weight: 900;
+      font-weight: 600;
+      font-style: italic;
       line-height: 1;
-      letter-spacing: -2px;
+      letter-spacing: -1px;
       color: var(--text);
       animation: fadeUp 0.8s ease 0.2s both;
     }
 
     .hero-title {
+      font-family: var(--font-body);
       font-size: clamp(0.85rem, 2vw, 1.1rem);
       color: var(--muted);
       margin-top: 20px;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 2px;
       animation: fadeUp 0.8s ease 0.4s both;
     }
@@ -165,12 +177,14 @@
       background: var(--glass-border);
     }
     .stat-num {
+      font-family: var(--font-display);
       font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-      font-weight: 900;
+      font-weight: 600;
       color: var(--accent2);
       display: block;
     }
     .stat-label {
+      font-family: var(--font-body);
       font-size: 0.64rem;
       color: var(--muted);
       letter-spacing: 2px;
@@ -191,7 +205,7 @@
       gap: 8px;
       padding: 13px 28px;
       border-radius: 12px;
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-body);
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 2px;
@@ -228,6 +242,7 @@
     .container { max-width: 1100px; margin: 0 auto; }
 
     .section-label {
+      font-family: var(--font-body);
       font-size: 0.67rem;
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -246,8 +261,8 @@
     }
 
     .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 600;
       margin-bottom: 52px;
       letter-spacing: -0.5px;
       position: relative;
@@ -301,10 +316,11 @@
     }
 
     .about-glass-panel .handle {
-      font-weight: 900;
-      font-size: 1.12rem;
+      font-weight: 700;
+      font-style: italic;
+      font-size: 1.2rem;
       color: var(--accent2);
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
     .about-glass-panel .tag-row {
       display: flex;
@@ -313,6 +329,7 @@
       justify-content: center;
     }
     .mini-tag {
+      font-family: var(--font-body);
       font-size: 0.65rem;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -327,96 +344,73 @@
     .about-text p {
       color: var(--muted);
       line-height: 1.9;
-      font-size: 0.97rem;
+      font-size: 0.98rem;
       margin-bottom: 20px;
       font-weight: 500;
     }
     .about-text p strong { color: var(--text); font-weight: 700; }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .skill-card {
-      background: var(--card-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 28px 24px;
-      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    }
-    .skill-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(240,163,92,0.3);
-      box-shadow: 0 14px 32px rgba(240,163,92,0.1);
-    }
-
-    .skill-icon {
-      width: 52px; height: 52px;
+    /* === WHAT I DO — redesigned === */
+    .skills-list {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      border-radius: 14px;
-      background: rgba(240,163,92,0.1);
-      border: 1px solid rgba(240,163,92,0.2);
-      color: var(--accent2);
+      flex-direction: column;
     }
-    .skill-icon svg { width: 24px; height: 24px; }
+    .skill-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 32px;
+      padding: 36px 0;
+      border-top: 1px solid var(--glass-border);
+      align-items: start;
+    }
+    .skill-row:last-child {
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .skill-index {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--accent2);
+      opacity: 0.55;
+      line-height: 1;
+    }
+    .skill-row-content {
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr auto;
+      gap: 28px;
+      align-items: center;
+    }
     .skill-name {
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.2px;
       color: var(--text);
     }
     .skill-desc {
-      font-size: 0.84rem;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
       font-weight: 500;
     }
-    .skill-bar-wrap { margin-top: 18px; }
-    .skill-bar-track {
-      height: 4px;
-      background: rgba(242,236,228,0.08);
-      border-radius: 99px;
-      overflow: hidden;
-    }
-    .skill-bar {
-      height: 100%;
-      border-radius: 99px;
-      background: var(--accent2);
-      width: 0;
-      transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
-    }
-    .skill-bar-pct {
-      text-align: right;
-      font-size: 0.65rem;
-      color: var(--accent2);
-      letter-spacing: 1px;
-      margin-top: 6px;
-      font-weight: 700;
-    }
     .skill-code-btn {
-      margin-top: 16px;
+      justify-self: end;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      font-family: var(--font-body);
       font-size: 0.66rem;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--accent2);
       background: rgba(240,163,92,0.08);
       border: 1px solid rgba(240,163,92,0.25);
-      padding: 8px 14px;
+      padding: 9px 16px;
       border-radius: 8px;
       cursor: pointer;
-      font-family: 'Montserrat', sans-serif;
       font-weight: 700;
+      white-space: nowrap;
       transition: background 0.2s, border-color 0.2s;
     }
     .skill-code-btn:hover {
@@ -424,6 +418,13 @@
       border-color: rgba(240,163,92,0.45);
     }
     .skill-code-btn svg { width: 13px; height: 13px; }
+
+    @media (max-width: 768px) {
+      .skill-row { grid-template-columns: 50px 1fr; gap: 18px; }
+      .skill-index { font-size: 1.5rem; }
+      .skill-row-content { grid-template-columns: 1fr; gap: 12px; }
+      .skill-code-btn { justify-self: start; }
+    }
 
     .gallery-grid {
       display: grid;
@@ -454,6 +455,7 @@
     }
     .gallery-item:hover img { transform: scale(1.05); }
     .gallery-caption {
+      font-family: var(--font-body);
       padding: 14px 18px 6px;
       font-size: 0.8rem;
       color: var(--muted);
@@ -472,6 +474,7 @@
       background: var(--accent2);
     }
     .gallery-note {
+      font-family: var(--font-body);
       padding: 0 18px 16px 34px;
       font-size: 0.76rem;
       color: var(--muted);
@@ -480,37 +483,45 @@
       opacity: 0.85;
     }
 
-    .terms-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+    /* === BEFORE YOU MESSAGE ME — redesigned === */
+    .terms-list {
+      display: flex;
+      flex-direction: column;
+      max-width: 760px;
     }
-    .term-card {
-      background: var(--card-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 26px 24px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    .term-row {
+      display: flex;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--glass-border);
+      position: relative;
+      padding-left: 20px;
     }
-    .term-num {
-      font-size: 0.7rem;
-      color: var(--accent2);
-      letter-spacing: 2px;
-      font-weight: 800;
-      margin-bottom: 12px;
-      display: block;
+    .term-row::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 28px; bottom: 28px;
+      width: 2px;
+      background: rgba(240,163,92,0.3);
+      border-radius: 2px;
+    }
+    .term-row:first-child {
+      border-top: 1px solid var(--glass-border);
     }
     .term-title {
-      font-size: 0.92rem;
-      font-weight: 800;
-      margin-bottom: 10px;
+      font-size: 1.08rem;
+      font-weight: 600;
       color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.2px;
     }
     .term-desc {
-      font-size: 0.84rem;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
       font-weight: 500;
+      max-width: 560px;
     }
 
     #contact { text-align: center; }
@@ -535,6 +546,7 @@
       gap: 20px;
     }
     .contact-glass .discord-tag {
+      font-family: var(--font-body);
       font-size: 0.88rem;
       color: var(--text);
       background: rgba(240,163,92,0.08);
@@ -546,6 +558,7 @@
     }
     .contact-glass .discord-tag b { color: var(--accent2); font-weight: 800; }
     .contact-meta {
+      font-family: var(--font-body);
       font-size: 0.74rem;
       color: var(--muted);
       font-weight: 500;
@@ -553,6 +566,7 @@
     }
 
     footer {
+      font-family: var(--font-body);
       text-align: center;
       padding: 32px;
       color: var(--muted);
@@ -606,6 +620,7 @@
       border-bottom: 1px solid var(--glass-border);
     }
     .code-modal-title {
+      font-family: var(--font-body);
       font-size: 0.78rem;
       font-weight: 800;
       letter-spacing: 1px;
@@ -638,6 +653,7 @@
       background: #15110d;
     }
     .code-modal-foot {
+      font-family: var(--font-body);
       padding: 12px 20px;
       font-size: 0.7rem;
       color: var(--muted);
@@ -662,7 +678,7 @@
 <body>
 
 <nav>
-  <div class="logo">RAF_MEMES</div>
+  <div class="logo">Raf_Memes</div>
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -734,70 +750,48 @@
       <div class="section-label"><span class="sparkle">✦</span> Skills</div>
       <h2 class="section-title">What I Do</h2>
     </div>
-    <div class="skills-grid">
+    <div class="skills-list">
 
-      <div class="skill-card reveal">
-        <div class="skill-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="7 8 3 12 7 16"/><polyline points="17 8 21 12 17 16"/><line x1="14" y1="4" x2="10" y2="20"/>
-          </svg>
-        </div>
-        <div class="skill-name">Luau Scripting</div>
-        <div class="skill-desc">I try to write all my scripts myself and rarely ask AI for help. I focus primarily on anti-cheat and optimization.</div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-track"><div class="skill-bar" data-width="95"></div></div>
-          <div class="skill-bar-pct" data-pct="95">0%</div>
-        </div>
-        <button class="skill-code-btn" data-modal="code-anticheat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          View Code Sample
-        </button>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
-          </svg>
-        </div>
-        <div class="skill-name">UI Design</div>
-        <div class="skill-desc">I know how to work with animated GUIs, inventories, HUDs, and menus.</div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-track"><div class="skill-bar" data-width="88"></div></div>
-          <div class="skill-bar-pct" data-pct="88">0%</div>
+      <div class="skill-row reveal">
+        <div class="skill-index">01</div>
+        <div class="skill-row-content">
+          <div class="skill-name">Luau Scripting</div>
+          <div class="skill-desc">I try to write all my scripts myself and rarely ask AI for help. I focus primarily on anti-cheat and optimization.</div>
+          <button class="skill-code-btn" data-modal="code-anticheat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            View Code
+          </button>
         </div>
       </div>
 
-      <div class="skill-card reveal">
-        <div class="skill-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-          </svg>
-        </div>
-        <div class="skill-name">Roblox Studio</div>
-        <div class="skill-desc">I know Roblox Studio mechanics such as Motor6D, WeldConstraint, APIs, and DataStores.</div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-track"><div class="skill-bar" data-width="92"></div></div>
-          <div class="skill-bar-pct" data-pct="92">0%</div>
+      <div class="skill-row reveal">
+        <div class="skill-index">02</div>
+        <div class="skill-row-content">
+          <div class="skill-name">UI Design</div>
+          <div class="skill-desc">I know how to work with animated GUIs, inventories, HUDs, and menus.</div>
+          <span></span>
         </div>
       </div>
 
-      <div class="skill-card reveal">
-        <div class="skill-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/>
-          </svg>
+      <div class="skill-row reveal">
+        <div class="skill-index">03</div>
+        <div class="skill-row-content">
+          <div class="skill-name">Roblox Studio</div>
+          <div class="skill-desc">I know Roblox Studio mechanics such as Motor6D, WeldConstraint, APIs, and DataStores.</div>
+          <span></span>
         </div>
-        <div class="skill-name">Optimization</div>
-        <div class="skill-desc">Profiling, cutting server load, object pooling, data caching, stuff runs well.</div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-track"><div class="skill-bar" data-width="80"></div></div>
-          <div class="skill-bar-pct" data-pct="80">0%</div>
+      </div>
+
+      <div class="skill-row reveal">
+        <div class="skill-index">04</div>
+        <div class="skill-row-content">
+          <div class="skill-name">Optimization</div>
+          <div class="skill-desc">Profiling, cutting server load, object pooling, data caching, stuff runs well.</div>
+          <button class="skill-code-btn" data-modal="code-optimization">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            View Code
+          </button>
         </div>
-        <button class="skill-code-btn" data-modal="code-optimization">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          View Code Sample
-        </button>
       </div>
 
     </div>
@@ -846,30 +840,34 @@
       <div class="section-label"><span class="sparkle">✦</span> How I Work</div>
       <h2 class="section-title">Before You Message Me</h2>
     </div>
-    <div class="terms-grid">
+    <div class="terms-list">
 
-      <div class="term-card reveal">
-        <span class="term-num">01</span>
-        <div class="term-title">Payment in parts</div>
-        <div class="term-desc">I split the project into parts, send you 1/4, you check it, I make changes if needed, then I send the next part, you only pay for what you already got and checked.</div>
+      <div class="term-row reveal">
+        <div>
+          <div class="term-title">Payment in parts</div>
+          <div class="term-desc">I split the project into parts, send you 1/4, you check it, I make changes if needed, then I send the next part, you only pay for what you already got and checked.</div>
+        </div>
       </div>
 
-      <div class="term-card reveal">
-        <span class="term-num">02</span>
-        <div class="term-title">Timezone</div>
-        <div class="term-desc">Im on UTC+5, online mostly during the day. Replies depend on when you message.</div>
+      <div class="term-row reveal">
+        <div>
+          <div class="term-title">Timezone</div>
+          <div class="term-desc">Im on UTC+5, online mostly during the day. Replies depend on when you message.</div>
+        </div>
       </div>
 
-      <div class="term-card reveal">
-        <span class="term-num">03</span>
-        <div class="term-title">First time taking orders</div>
-        <div class="term-desc">Ive been scripting solo for years but this is new for me as far as working with clients. I work the same way I always have.</div>
+      <div class="term-row reveal">
+        <div>
+          <div class="term-title">First time taking orders</div>
+          <div class="term-desc">Ive been scripting solo for years but this is new for me as far as working with clients. I work the same way I always have.</div>
+        </div>
       </div>
 
-      <div class="term-card reveal">
-        <span class="term-num">04</span>
-        <div class="term-title">Payment details</div>
-        <div class="term-desc">Exact payment method and price depend on the project, discussed in Discord.</div>
+      <div class="term-row reveal">
+        <div>
+          <div class="term-title">Payment details</div>
+          <div class="term-desc">Exact payment method and price depend on the project, discussed in Discord.</div>
+        </div>
       </div>
 
     </div>
@@ -881,7 +879,7 @@
     <div class="reveal">
       <div class="section-label"><span class="sparkle">✦</span> Contact</div>
       <h2 class="section-title">Work With Me</h2>
-      <p style="color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.9; font-weight: 500;">
+      <p style="color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.9; font-weight: 500; font-family: var(--font-body);">
         Open for new projects and orders. Drop me a message.
       </p>
       <div class="contact-glass">
@@ -954,24 +952,6 @@
       if (!entry.isIntersecting) return;
       setTimeout(() => entry.target.classList.add('visible'), i * 80);
       observer.unobserve(entry.target);
-
-      const bar = entry.target.querySelector('.skill-bar');
-      const pctEl = entry.target.querySelector('.skill-bar-pct');
-      if (bar) {
-        const target = parseInt(bar.dataset.width);
-        setTimeout(() => { bar.style.width = target + '%'; }, 350);
-        if (pctEl) {
-          setTimeout(() => {
-            let cur = 0;
-            const step = target / (1400 / 16);
-            const t = setInterval(() => {
-              cur = Math.min(cur + step, target);
-              pctEl.textContent = Math.round(cur) + '%';
-              if (cur >= target) clearInterval(t);
-            }, 16);
-          }, 350);
-        }
-      }
     });
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
@@ -985,4 +965,3 @@
 </script>
 </body>
 </html>
-
